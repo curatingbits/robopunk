@@ -5,21 +5,25 @@ const TOKEN = process.env.TOKEN;
 
 bot.login(TOKEN);
 
+const hashtag = async (number) => {
+  _val = parseInt(number.substring(1))
+  console.log(_val, "VAL")
+  if(_val > 9999 || _val < 0){ return _val + " isn't a Punk."}
+
+  return 'https://www.larvalabs.com/cryptopunks/details/' + _val
+}
+
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('pong');
-    msg.channel.send('pong');
+  if (msg.content.startsWith('#')) {
 
-  } else if (msg.content.startsWith('!kick')) {
-    if (msg.mentions.users.size) {
-      const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
-    } else {
-      msg.reply('Please tag a valid user!');
-    }
-  }
+  hashtag(msg.content).then((val) => (msg.channel.send(val)))
+   
+    // msg.reply('pong');
+    // msg.channel.send('https://www.larvalabs.com/cryptopunks/details/' + _value);
+
+  } 
 });
