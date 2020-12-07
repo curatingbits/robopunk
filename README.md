@@ -14,6 +14,5 @@
 3. Run `node index.js`
 4. Interact with your Discord bot via your web browser
 
-## License
 
 
