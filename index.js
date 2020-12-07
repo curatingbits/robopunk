@@ -14,7 +14,7 @@ const hashtag = async (number) => {
     return _val + " isn't a Punk.";
   }
 
-  return "https://www.larvalabs.com/cryptopunks/details/" + _val;
+  return "https://larvalabs.com/cryptopunks/details/"+_val.toString();
 };
 
 const openseaEvent = async () => {
@@ -56,7 +56,6 @@ bot.on("ready", () => {
 });
 
 bot.on("message", (msg) => {
-
   if(msg.channel.id === CHANNEL) {
     if (msg.content.startsWith("#")) {
       hashtag(msg.content)
@@ -65,7 +64,5 @@ bot.on("message", (msg) => {
     }
   }
 });
-
-
 
 setInterval(openseaEvent, 120000);
