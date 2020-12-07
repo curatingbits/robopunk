@@ -1,7 +1,7 @@
 {
   "name": "robopunk",
   "version": "1.0.0",
-  "description": "Discord Bot to track Crypto Punks",
+  "description": "Discord Bot to track CryptoPunks",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
