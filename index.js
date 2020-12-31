@@ -78,7 +78,9 @@ async function punkData(msg, number) {
             8
           )}](https://www.larvalabs.com/cryptopunks/accountinfo?account=${
             data.owner.address
-          })`,
+          }) ${
+            data.owner.user !== null ? `(${data.owner.user.username})` : ""
+          }`,
           inline: true,
         })
 
@@ -95,7 +97,8 @@ async function punkData(msg, number) {
                 inline: true,
               }
             : { name: "Last Sale", value: "No Transactions", inline: true }
-        );
+        )
+        .addFields({ name: "# Sold", value: data.num_sales, inline: true });
       msg.channel.send(embed);
       return data;
     })
